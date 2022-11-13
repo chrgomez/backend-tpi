@@ -74,7 +74,8 @@ public class PropiedadController {
                                                 propiedad.getDescripcion(), 
                                                 propiedad.isDisponibilidad(),
                                                 propiedad.getTipo(),
-                                                propiedad.getPrecio()));
+                                                propiedad.getPrecio(),
+                                                propiedad.getDireccion()));
 			return new ResponseEntity<>(_propiedad, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -97,6 +98,7 @@ public class PropiedadController {
                         _propiedad.setDisponibilidad(propiedad.isDisponibilidad());
 			_propiedad.setTipo(propiedad.getTipo());
                         _propiedad.setPrecio(propiedad.getPrecio());
+                        _propiedad.setDireccion(propiedad.getDireccion());
 			
 			return new ResponseEntity<>(propiedadRepository.save(_propiedad), HttpStatus.OK);
 		} else {

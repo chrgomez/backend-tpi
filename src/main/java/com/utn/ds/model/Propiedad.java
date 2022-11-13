@@ -44,6 +44,10 @@ public class Propiedad implements Serializable {
     @Column(name = "precio")
     private BigDecimal precio;
     
+    @OneToOne 
+    @JoinColumn(name = "id_direccion", nullable = false)
+    private Direccion direccion;
+    
 //    @ManyToOne 
 //    @JoinColumn(name = "id_tipo_propiedad", nullable = false)
 //    private TipoPropiedad tipoPropiedad;
@@ -52,7 +56,7 @@ public class Propiedad implements Serializable {
 
     }
 
-    public Propiedad(String codPropiedad, String medidas, Date antiguedad, boolean amueblado, Integer cantHabitaciones, String servicios, String descripcion, boolean disponibilidad, String tipo, BigDecimal precio) {
+    public Propiedad(String codPropiedad, String medidas, Date antiguedad, boolean amueblado, Integer cantHabitaciones, String servicios, String descripcion, boolean disponibilidad, String tipo, BigDecimal precio, Direccion direccion) {
         this.codPropiedad = codPropiedad;
         this.medidas = medidas;
         this.antiguedad = antiguedad;
@@ -63,6 +67,7 @@ public class Propiedad implements Serializable {
         this.disponibilidad = disponibilidad;
         this.tipo = tipo;
         this.precio = precio;
+        this.direccion = direccion;
     }
     
     
@@ -156,6 +161,14 @@ public class Propiedad implements Serializable {
     public void setPrecio(BigDecimal precio) {
         this.precio = precio;
     }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
     
 //    public TipoPropiedad getTipoPropiedad() {
 //        return this.tipoPropiedad;
@@ -167,7 +180,18 @@ public class Propiedad implements Serializable {
 
     @Override
     public String toString() {
-        return "Propiedad [id=" + id + ", precio=" + precio + ", descripcion=" + descripcion + ", tipo= " + tipo + "]";
+        return "Propiedad [id=" + id + 
+               ", codPropiedad=" + codPropiedad + 
+               ", medidas=" + medidas + 
+               ", antiguedad=" + antiguedad + 
+               ", amueblado=" + amueblado + 
+               ", cantHabitaciones=" + cantHabitaciones + 
+               ", servicios=" + servicios + 
+               ", descripcion=" + descripcion + 
+               ", disponibilidad=" + disponibilidad + 
+               ", tipo= " + tipo + 
+               ", precio=" + precio +
+               ", direccion=" + direccion +"]";
     }
 
 }
