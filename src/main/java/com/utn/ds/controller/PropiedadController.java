@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost")
 @RestController
 @RequestMapping("/api")
 public class PropiedadController {
@@ -65,9 +65,16 @@ public class PropiedadController {
 		try {
 			Propiedad _propiedad = propiedadRepository
 					.save(new Propiedad(
-                                                propiedad.getPrecio(), 
+                                                propiedad.getCodPropiedad(), 
+                                                propiedad.getMedidas(),
+                                                propiedad.getAntiguedad(),
+                                                propiedad.isAmueblado(),
+                                                propiedad.getCantHabitaciones(),
+                                                propiedad.getServicios(),
                                                 propiedad.getDescripcion(), 
-                                                propiedad.getTipoPropiedad()));
+                                                propiedad.isDisponibilidad(),
+                                                propiedad.getTipo(),
+                                                propiedad.getPrecio()));
 			return new ResponseEntity<>(_propiedad, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -80,8 +87,17 @@ public class PropiedadController {
 
 		if (propiedadData.isPresent()) {
 			Propiedad _propiedad = propiedadData.get();
-			_propiedad.setPrecio(propiedad.getPrecio());
-			_propiedad.setDescripcion(propiedad.getDescripcion());
+                        _propiedad.setCodPropiedad(propiedad.getCodPropiedad());
+                        _propiedad.setMedidas(propiedad.getMedidas());
+                        _propiedad.setAntiguedad(propiedad.getAntiguedad());
+                        _propiedad.setAmueblado(propiedad.isAmueblado());
+                        _propiedad.setCantHabitaciones(propiedad.getCantHabitaciones());
+                        _propiedad.setServicios(propiedad.getServicios());
+                        _propiedad.setDescripcion(propiedad.getDescripcion());
+                        _propiedad.setDisponibilidad(propiedad.isDisponibilidad());
+			_propiedad.setTipo(propiedad.getTipo());
+                        _propiedad.setPrecio(propiedad.getPrecio());
+			
 			return new ResponseEntity<>(propiedadRepository.save(_propiedad), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
