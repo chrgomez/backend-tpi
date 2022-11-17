@@ -46,6 +46,34 @@ INSERT INTO `direccion` VALUES (1,'CHACO','RESISTENCIA','SALTA','123',NULL,NULL,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `foto`
+--
+
+DROP TABLE IF EXISTS `foto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `foto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(25) NOT NULL,
+  `id_propiedad` int(11) NOT NULL,
+  `foto_fk` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `foto_FK` (`id_propiedad`),
+  CONSTRAINT `foto_FK` FOREIGN KEY (`id_propiedad`) REFERENCES `propiedad` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `foto`
+--
+
+LOCK TABLES `foto` WRITE;
+/*!40000 ALTER TABLE `foto` DISABLE KEYS */;
+INSERT INTO `foto` VALUES (1,'/tmp/imagen1.png',1,0),(2,'/tmp/imagen2.png',1,0),(3,'/tmp/imagen3.png',2,0);
+/*!40000 ALTER TABLE `foto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `hibernate_sequence`
 --
 
@@ -63,7 +91,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (10);
+INSERT INTO `hibernate_sequence` VALUES (15);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +119,7 @@ CREATE TABLE `propiedad` (
   PRIMARY KEY (`id`),
   KEY `FKh96l4guun3t9y1h1pki4viubp` (`id_direccion`),
   CONSTRAINT `FKh96l4guun3t9y1h1pki4viubp` FOREIGN KEY (`id_direccion`) REFERENCES `direccion` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-13  9:47:29
+-- Dump completed on 2022-11-17  9:26:01

@@ -3,6 +3,7 @@ package com.utn.ds.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -48,9 +49,8 @@ public class Propiedad implements Serializable {
     @JoinColumn(name = "id_direccion", nullable = false)
     private Direccion direccion;
     
-//    @ManyToOne 
-//    @JoinColumn(name = "id_tipo_propiedad", nullable = false)
-//    private TipoPropiedad tipoPropiedad;
+    @OneToMany( mappedBy = "propiedad" )
+    private List<Foto> fotos;
     
     public Propiedad() {
 
@@ -70,13 +70,28 @@ public class Propiedad implements Serializable {
         this.direccion = direccion;
     }
     
+    public Propiedad(String codPropiedad, String medidas, Date antiguedad, boolean amueblado, Integer cantHabitaciones, String servicios, String descripcion, boolean disponibilidad, String tipo, BigDecimal precio, Direccion direccion, List<Foto> fotos) {
+        this.codPropiedad = codPropiedad;
+        this.medidas = medidas;
+        this.antiguedad = antiguedad;
+        this.amueblado = amueblado;
+        this.cantHabitaciones = cantHabitaciones;
+        this.servicios = servicios;
+        this.descripcion = descripcion;
+        this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
+        this.precio = precio;
+        this.direccion = direccion;
+        this.fotos = fotos;
+    }
     
+    public List<Foto> getFotos() {
+        return fotos;
+    }
 
-//    public Propiedad(BigDecimal precio, String descripcion, TipoPropiedad tipoPropiedad) {
-//        this.precio = precio;
-//        this.descripcion = descripcion;
-//        this.tipoPropiedad = tipoPropiedad;
-//    }
+    public void setFotos(List<Foto> fotos) {
+        this.fotos = fotos;
+    }
 
     public long getId() {
         return id;
@@ -169,7 +184,7 @@ public class Propiedad implements Serializable {
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
-    
+
 //    public TipoPropiedad getTipoPropiedad() {
 //        return this.tipoPropiedad;
 //    }
