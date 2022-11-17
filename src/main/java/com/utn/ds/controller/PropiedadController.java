@@ -4,7 +4,6 @@ import com.utn.ds.model.Foto;
 import com.utn.ds.model.Propiedad;
 import com.utn.ds.repository.PropiedadRepository;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -118,8 +117,8 @@ public class PropiedadController {
         }
     }
 
-    @GetMapping(value = "/{id}/fotos")
-    public ResponseEntity<Collection<Foto>> getPropiedadFotos(@PathVariable long id) {
+    @GetMapping(value = "/propiedad/{id}/fotos")
+    public ResponseEntity<List<Foto>> getPropiedadFotos(@PathVariable("id") long id) {
         Optional<Propiedad> propiedadData = propiedadRepository.findById(id);
 
         if (propiedadData.isPresent()) {
