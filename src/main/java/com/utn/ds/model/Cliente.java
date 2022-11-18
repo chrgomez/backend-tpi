@@ -4,32 +4,26 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "direccion")
-public class Direccion implements Serializable {
+@Table(name = "cliente")
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "provincia")
-    private String provincia;
+    @Column(name = "cuil")
+    private String cuil;
     
-    @Column(name = "ciudad")
-    private String ciudad;
+    @Column(name = "nombre")
+    private String nombre;
     
-    @Column(name = "numero")
-    private String numero;
+    @Column(name = "correo")
+    private String correo;
     
-    @Column(name = "barrio")
-    private String barrio;
+    @Column(name = "telefono")
+    private String telefono;
     
-    @Column(name = "piso")
-    private String piso;
-    
-    @Column(name = "depto")
-    private String depto;
-
-    public Direccion() {
+    public Cliente() {
 
     }
 
@@ -41,64 +35,36 @@ public class Direccion implements Serializable {
         this.id = id;
     }
 
-    public String getProvincia() {
-        return provincia;
+    public String getCuil() {
+        return cuil;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setCuil(String cuil) {
+        this.cuil = cuil;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getBarrio() {
-        return barrio;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setBarrio(String barrio) {
-        this.barrio = barrio;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
-
-    public String getPiso() {
-        return piso;
-    }
-
-    public void setPiso(String piso) {
-        this.piso = piso;
-    }
-
-    public String getDepto() {
-        return depto;
-    }
-
-    public void setDepto(String depto) {
-        this.depto = depto;
-    }
-
-    @Override
-    public String toString() {
-        return "Direccion [id=" + id + 
-                ", provincia=" + provincia + 
-                ", ciudad=" + ciudad +
-                ", numero=" + numero +
-                ", numero=" + numero +
-                ", piso=" + piso +
-                ", depto=" + depto +
-                "]";
-    }
-
+    
 }

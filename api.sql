@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cliente`
+--
+
+DROP TABLE IF EXISTS `cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cuil` varchar(15) NOT NULL,
+  `nombre` varchar(75) NOT NULL,
+  `correo` varchar(100) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'20-15100200','JUAN PEREZ',NULL,NULL);
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `direccion`
 --
 
@@ -91,7 +118,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (15);
+INSERT INTO `hibernate_sequence` VALUES (1);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,9 +143,12 @@ CREATE TABLE `propiedad` (
   `precio` decimal(10,0) NOT NULL,
   `canthabitaciones` int(11) DEFAULT NULL,
   `id_direccion` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKh96l4guun3t9y1h1pki4viubp` (`id_direccion`),
-  CONSTRAINT `FKh96l4guun3t9y1h1pki4viubp` FOREIGN KEY (`id_direccion`) REFERENCES `direccion` (`id`)
+  KEY `FKkgekreeod69bmo8k37lgllyvx` (`id_cliente`),
+  CONSTRAINT `FKh96l4guun3t9y1h1pki4viubp` FOREIGN KEY (`id_direccion`) REFERENCES `direccion` (`id`),
+  CONSTRAINT `FKkgekreeod69bmo8k37lgllyvx` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -128,32 +158,8 @@ CREATE TABLE `propiedad` (
 
 LOCK TABLES `propiedad` WRITE;
 /*!40000 ALTER TABLE `propiedad` DISABLE KEYS */;
-INSERT INTO `propiedad` VALUES (1,'AB0505','',NULL,3,'\0',NULL,'propiedad update  1','','ALQUILER',500,NULL,1),(2,'CD0890','',NULL,2,'',NULL,'propiedad 2','\0','OFICINA',200,NULL,2),(3,'EQWE7894','',NULL,1,'\0',NULL,'propiedad 3','','CASA',300,NULL,3),(4,'WE6463','',NULL,2,'',NULL,'propiedad insert with tipo','','ALQUILER',700,NULL,4),(5,'JHGJ6541','',NULL,3,'\0',NULL,'propiedad insert with tipo','','SALON',700,NULL,5);
+INSERT INTO `propiedad` VALUES (1,'AB0505','',NULL,3,'\0',NULL,'propiedad update  1','','ALQUILER',500,NULL,1,1),(2,'CD0890','',NULL,2,'',NULL,'propiedad 2','\0','OFICINA',200,NULL,2,1),(3,'EQWE7894','',NULL,1,'\0',NULL,'propiedad 3','','CASA',300,NULL,3,1),(4,'WE6463','',NULL,2,'',NULL,'propiedad insert with tipo','','ALQUILER',700,NULL,4,1);
 /*!40000 ALTER TABLE `propiedad` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tipo_propiedad`
---
-
-DROP TABLE IF EXISTS `tipo_propiedad`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipo_propiedad` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tipo_propiedad`
---
-
-LOCK TABLES `tipo_propiedad` WRITE;
-/*!40000 ALTER TABLE `tipo_propiedad` DISABLE KEYS */;
-INSERT INTO `tipo_propiedad` VALUES (1,'ALQUILER'),(2,'CASA'),(3,'SALON');
-/*!40000 ALTER TABLE `tipo_propiedad` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -165,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-17  9:26:01
+-- Dump completed on 2022-11-17 21:03:31

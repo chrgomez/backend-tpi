@@ -49,6 +49,10 @@ public class Propiedad implements Serializable {
     @JoinColumn(name = "id_direccion", nullable = false)
     private Direccion direccion;
     
+    @ManyToOne 
+    @JoinColumn(name = "id_cliente", nullable = false)
+    private Cliente cliente;
+    
     @OneToMany( mappedBy = "propiedad" )
     private List<Foto> fotos;
     
@@ -56,21 +60,7 @@ public class Propiedad implements Serializable {
 
     }
 
-    public Propiedad(String codPropiedad, String medidas, Date antiguedad, boolean amueblado, Integer cantHabitaciones, String servicios, String descripcion, boolean disponibilidad, String tipo, BigDecimal precio, Direccion direccion) {
-        this.codPropiedad = codPropiedad;
-        this.medidas = medidas;
-        this.antiguedad = antiguedad;
-        this.amueblado = amueblado;
-        this.cantHabitaciones = cantHabitaciones;
-        this.servicios = servicios;
-        this.descripcion = descripcion;
-        this.disponibilidad = disponibilidad;
-        this.tipo = tipo;
-        this.precio = precio;
-        this.direccion = direccion;
-    }
-    
-    public Propiedad(String codPropiedad, String medidas, Date antiguedad, boolean amueblado, Integer cantHabitaciones, String servicios, String descripcion, boolean disponibilidad, String tipo, BigDecimal precio, Direccion direccion, List<Foto> fotos) {
+    public Propiedad(String codPropiedad, String medidas, Date antiguedad, boolean amueblado, Integer cantHabitaciones, String servicios, String descripcion, boolean disponibilidad, String tipo, BigDecimal precio, Direccion direccion, List<Foto> fotos, Cliente cliente) {
         this.codPropiedad = codPropiedad;
         this.medidas = medidas;
         this.antiguedad = antiguedad;
@@ -83,6 +73,7 @@ public class Propiedad implements Serializable {
         this.precio = precio;
         this.direccion = direccion;
         this.fotos = fotos;
+        this.cliente= cliente;
     }
     
     public List<Foto> getFotos() {
@@ -185,14 +176,15 @@ public class Propiedad implements Serializable {
         this.direccion = direccion;
     }
 
-//    public TipoPropiedad getTipoPropiedad() {
-//        return this.tipoPropiedad;
-//    }
-//    
-//    public void setTipoPropiedad(TipoPropiedad tipoPropiedad) {
-//        this.tipoPropiedad = tipoPropiedad;
-//    }
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
+    
     @Override
     public String toString() {
         return "Propiedad [id=" + id + 
@@ -206,7 +198,8 @@ public class Propiedad implements Serializable {
                ", disponibilidad=" + disponibilidad + 
                ", tipo= " + tipo + 
                ", precio=" + precio +
-               ", direccion=" + direccion +"]";
+               ", direccion=" + direccion +
+               ", cliente=" + cliente +"]";
     }
 
 }
