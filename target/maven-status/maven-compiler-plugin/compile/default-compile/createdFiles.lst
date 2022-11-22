@@ -1,10 +1,14 @@
-com/utn/ds/model/Cliente.class
+com/utn/ds/repository/ClienteRepository.class
 com/utn/ds/model/Propiedad.class
 com/utn/ds/model/Direccion.class
 com/utn/ds/Application.class
-com/utn/ds/repository/PropiedadRepository.class
-com/utn/ds/controller/FotoController.class
 com/utn/ds/controller/PropiedadController.class
+com/utn/ds/repository/DireccionRepository.class
 com/utn/ds/repository/FotoRepository.class
 com/utn/ds/Application$1.class
 com/utn/ds/model/Foto.class
+com/utn/ds/model/Cliente.class
+com/utn/ds/controller/DireccionController.class
+com/utn/ds/repository/PropiedadRepository.class
+com/utn/ds/controller/FotoController.class
+com/utn/ds/controller/ClienteController.class

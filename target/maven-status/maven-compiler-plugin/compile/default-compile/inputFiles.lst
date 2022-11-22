@@ -1,9 +1,13 @@
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/model/Cliente.java
+/home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/controller/ClienteController.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/repository/PropiedadRepository.java
+/home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/repository/FotoRepository.java
+/home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/repository/DireccionRepository.java
+/home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/controller/DireccionController.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/model/Propiedad.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/model/Foto.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/Application.java
-/home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/repository/FotoRepository.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/model/Direccion.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/controller/PropiedadController.java
 /home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/controller/FotoController.java
+/home/tupa/NetBeansProjects/backend-tpi/src/main/java/com/utn/ds/repository/ClienteRepository.java

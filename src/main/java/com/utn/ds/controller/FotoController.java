@@ -2,7 +2,6 @@ package com.utn.ds.controller;
 
 import com.utn.ds.model.Foto;
 import com.utn.ds.repository.FotoRepository;
-import com.utn.ds.repository.FotoRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

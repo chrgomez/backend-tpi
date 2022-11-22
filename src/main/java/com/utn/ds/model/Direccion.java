@@ -17,6 +17,9 @@ public class Direccion implements Serializable {
     @Column(name = "ciudad")
     private String ciudad;
     
+    @Column(name = "calle")
+    private String calle;
+    
     @Column(name = "numero")
     private String numero;
     
@@ -32,6 +35,18 @@ public class Direccion implements Serializable {
     public Direccion() {
 
     }
+
+    public Direccion(String provincia, String ciudad, String calle, String numero, String barrio, String piso, String depto) {
+        this.provincia = provincia;
+        this.ciudad = ciudad;
+        this.calle = calle;
+        this.numero = numero;
+        this.barrio = barrio;
+        this.piso = piso;
+        this.depto = depto;
+    }
+    
+    
 
     public long getId() {
         return id;
@@ -57,6 +72,14 @@ public class Direccion implements Serializable {
         this.ciudad = ciudad;
     }
 
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+    
     public String getNumero() {
         return numero;
     }
@@ -94,6 +117,7 @@ public class Direccion implements Serializable {
         return "Direccion [id=" + id + 
                 ", provincia=" + provincia + 
                 ", ciudad=" + ciudad +
+                ", calle=" + calle +
                 ", numero=" + numero +
                 ", numero=" + numero +
                 ", piso=" + piso +
